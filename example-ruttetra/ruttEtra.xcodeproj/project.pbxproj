@@ -40,7 +40,7 @@
 		F607F30E187DA2D400D5C7CB /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F607F303187DA2D400D5C7CB /* ofxSlider.cpp */; };
 		F607F30F187DA2D400D5C7CB /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F607F305187DA2D400D5C7CB /* ofxSliderGroup.cpp */; };
 		F607F310187DA2D400D5C7CB /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F607F307187DA2D400D5C7CB /* ofxToggle.cpp */; };
-		F6656CCB187DD70A00A3B985 /* ofxBufferMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6656CC9187DD70A00A3B985 /* ofxBufferMesh.cpp */; };
+		F6656CCE187F0C0000A3B985 /* ofxBufferMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6656CCC187F0C0000A3B985 /* ofxBufferMesh.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +124,8 @@
 		F607F306187DA2D400D5C7CB /* ofxSliderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSliderGroup.h; sourceTree = "<group>"; };
 		F607F307187DA2D400D5C7CB /* ofxToggle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxToggle.cpp; sourceTree = "<group>"; };
 		F607F308187DA2D400D5C7CB /* ofxToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxToggle.h; sourceTree = "<group>"; };
-		F6656CC9187DD70A00A3B985 /* ofxBufferMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBufferMesh.cpp; sourceTree = "<group>"; };
-		F6656CCA187DD70A00A3B985 /* ofxBufferMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBufferMesh.h; sourceTree = "<group>"; };
+		F6656CCC187F0C0000A3B985 /* ofxBufferMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxBufferMesh.cpp; path = ../src/ofxBufferMesh.cpp; sourceTree = "<group>"; };
+		F6656CCD187F0C0000A3B985 /* ofxBufferMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxBufferMesh.h; path = ../src/ofxBufferMesh.h; sourceTree = "<group>"; };
 		FF035917EA1986BBF94B1B29 /* ofxBufferObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBufferObject.cpp; path = ../src/ofxBufferObject.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -207,6 +207,8 @@
 		BF78B39201B1EFACDC35934E /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F6656CCC187F0C0000A3B985 /* ofxBufferMesh.cpp */,
+				F6656CCD187F0C0000A3B985 /* ofxBufferMesh.h */,
 				FF035917EA1986BBF94B1B29 /* ofxBufferObject.cpp */,
 				934BCF6587668A5D59FE0884 /* ofxBufferObject.h */,
 				C71F51B92741BBD829A28D19 /* ofxColorBuffer.cpp */,
@@ -217,8 +219,6 @@
 				A5AE4C5EA7829DD07DBD7674 /* ofxTexCoordBuffer.h */,
 				12835912ACC38682CD63C5F4 /* ofxVertexBuffer.cpp */,
 				BCD123BC8B40FF27E5FC9B62 /* ofxVertexBuffer.h */,
-				F6656CC9187DD70A00A3B985 /* ofxBufferMesh.cpp */,
-				F6656CCA187DD70A00A3B985 /* ofxBufferMesh.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				F607F30E187DA2D400D5C7CB /* ofxSlider.cpp in Sources */,
 				F607F30F187DA2D400D5C7CB /* ofxSliderGroup.cpp in Sources */,
 				F607F310187DA2D400D5C7CB /* ofxToggle.cpp in Sources */,
-				F6656CCB187DD70A00A3B985 /* ofxBufferMesh.cpp in Sources */,
+				F6656CCE187F0C0000A3B985 /* ofxBufferMesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

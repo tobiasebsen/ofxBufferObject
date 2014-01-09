@@ -40,7 +40,7 @@ public:
 	void* map();
 	void unmap(int target);
 	void unmap();
-	
+    	
 	// Read pixels from currently bound frame buffer
 	void readPixels(int x, int y, int width, int height, int format, int type, int offset = 0);
 	// Read pixels from specific frame buffer
