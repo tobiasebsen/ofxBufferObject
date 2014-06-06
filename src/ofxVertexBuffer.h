@@ -17,8 +17,13 @@ public:
 	virtual void begin();
 	virtual void end();
 	
-	void draw(int mode, int first, int count);
-	void draw(int mode) { draw(mode, 0, count); }
+	void draw(int mode, int first, int coordcount);
+	void draw(int mode, int coordcount) { draw(mode, 0, coordcount); }
+    
+    void drawPoints() { draw(GL_POINTS, 0, count); }
+    void drawLines() { draw(GL_LINES, 0, count); }
+    void drawTriangles() { draw(GL_TRIANGLES, 0, count); }
+    void drawQuads() { draw(GL_QUADS, 0, count); }
 	
 	int getCount() { return count; }
 	int getNumCoords() { return ncoords; }
@@ -31,6 +36,9 @@ private:
 };
 
 typedef ofxVertexBuffer<GLfloat, GL_FLOAT> ofxVertexBufferFloat;
+typedef ofxVertexBuffer<ofVec2f, GL_FLOAT> ofxVertexBufferVec2f;
+typedef ofxVertexBuffer<ofVec3f, GL_FLOAT> ofxVertexBufferVec3f;
+typedef ofxVertexBuffer<ofVec4f, GL_FLOAT> ofxVertexBufferVec4f;
 typedef ofxVertexBuffer<GLint, GL_INT> ofxVertexBufferInt;
 
 template<typename BufferType, GLenum glType>
@@ -59,9 +67,9 @@ void ofxVertexBuffer<BufferType,glType>::end() {
 }
 
 template<typename BufferType, GLenum glType>
-void ofxVertexBuffer<BufferType,glType>::draw(int mode, int first, int count) {
+void ofxVertexBuffer<BufferType,glType>::draw(int mode, int first, int coordcount) {
 	
 	ofxVertexBuffer::begin();
-	glDrawArrays(mode, first, count);
+	glDrawArrays(mode, first, coordcount);
 	ofxVertexBuffer::end();
 }

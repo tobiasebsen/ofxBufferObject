@@ -22,6 +22,7 @@ public:
 };
 
 typedef ofxTexCoordBuffer<GLfloat,GL_FLOAT> ofxTexCoordBufferFloat;
+typedef ofxTexCoordBuffer<ofVec2f,GL_FLOAT> ofxTexCoordBufferVec2f;
 
 template<typename BufferType, GLenum glType>
 void ofxTexCoordBuffer<BufferType,glType>::begin() {

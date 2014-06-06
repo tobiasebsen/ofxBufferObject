@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
 #include "ofxVertexBuffer.h"
 #include "ofxTexCoordBuffer.h"
 #include "ofxIndexBuffer.h"
@@ -15,20 +14,8 @@ public:
 
 private:
     
-    // Slider callbacks
-	void generateIndices(int & n);
-	void generateTexCoords();
-
-    ofxPanel panel;
-	ofxFloatSlider extrude;
-	ofxToggle points;
-	ofxToggle smooth;
-	ofxIntSlider lines;
-	ofxIntSlider columns;
-	ofxToggle blend;
-	ofxFloatSlider lwidth;
-
-    ofVideoGrabber grabber;
+    ofTexture face;
+    
     ofEasyCam cam;
 	ofShader shader;
 	ofFbo fbo;
@@ -36,5 +23,4 @@ private:
 	ofxVertexBufferVec3f vertices;
 	ofxTexCoordBufferVec2f texCoords;
 	ofxIndexBuffer indices;
-	int numIndices;
 };

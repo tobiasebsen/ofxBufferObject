@@ -19,7 +19,7 @@ void testApp::setup(){
 	
 	grabber.initGrabber(640, 480);
     
-	fbo.allocate(grabber.getWidth(), grabber.getHeight(), GL_RGBA32F);
+	fbo.allocate(grabber.getWidth(), grabber.getHeight(), GL_RGB32F);
     
 	shader.load("ruttetra.vs", "ruttetra.fs");
 	shader.begin();
@@ -28,8 +28,8 @@ void testApp::setup(){
 
 	int width = fbo.getWidth();
 	int height = fbo.getHeight();
-	vertices.allocate(width * height, 3, 4, GL_DYNAMIC_COPY);
-	texCoords.allocate(width * height, 2, 2, GL_STATIC_COPY);
+	vertices.allocate(width * height, 3, 1, GL_DYNAMIC_COPY);
+	texCoords.allocate(width * height, 2, 1, GL_STATIC_COPY);
 	indices.allocate((width-1)*(height-1)*2, GL_STATIC_COPY);
     
     int n = lines;
@@ -55,12 +55,13 @@ void testApp::generateIndices(int & n) {
     for (float fy = 0; fy < height - 1 ; fy+=incy) {
 		int offset = last = round(fy) * width;
 		for (float fx = 0; fx < width - 1 ; fx+=incx) {
-			*(idata++) = last;
-			*(idata++) = last = offset + round(fx);
+			idata[0] = last;
+			idata[1] = last = offset + round(fx);
+            idata+=2;
 		}
 	}
 	indices.unmap();
-	numIndices = lines * (columns - 1) * 2;
+	numIndices = (lines-1) * (columns-1) * 2;
 }
 
 //--------------------------------------------------------------
@@ -69,12 +70,13 @@ void testApp::generateTexCoords() {
 	int width = fbo.getWidth();
 	int height = fbo.getHeight();
 	
-    GLfloat *tdata = texCoords.map();
+    ofVec2f *tdata = texCoords.map();
     
 	for (int y=0; y<height; y++) {
 		for (int x=0; x<width; x++) {
-			*(tdata++) = x;
-			*(tdata++) = y;
+			tdata->x = x;
+			tdata->y = y;
+            tdata++;
 		}
 	}
 	texCoords.unmap();

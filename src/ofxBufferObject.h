@@ -8,6 +8,7 @@
 #pragma once
 #include "ofMain.h"
 
+
 class ofxBufferObject {
 public:
 	ofxBufferObject();
@@ -26,6 +27,7 @@ public:
 	
 	// Load specific data
 	void loadData(void* data, int size, int usage);
+	void loadData(void* data, int size);
 	
     // Bind buffer
 	void bind(int target);
@@ -38,14 +40,15 @@ public:
 	void* map(int target, int access);
 	void* map(int target);
 	void* map();
+    void* mapRange(int target, int offset, int length, int access);
 	void unmap(int target);
 	void unmap();
     	
 	// Read pixels from currently bound frame buffer
-	void readPixels(int x, int y, int width, int height, int format, int type, int offset = 0);
+	void readPixels(int x, int y, int width, int height, int format, int type, int offset = 0, int attachment = 0);
 	// Read pixels from specific frame buffer
-	void readPixels(ofFbo & fbo, int x, int y, int width, int height);
-	void readPixels(ofFbo & fbo);
+	void readPixels(ofFbo & fbo, int x, int y, int width, int height, int attachment = 0);
+	void readPixels(ofFbo & fbo, int attachment = 0);
 	
 	// Get size of buffer in bytes
 	int getSize();
@@ -67,11 +70,9 @@ private:
 template<typename BufferType, GLenum glType>
 class ofxBufferObject_ : public ofxBufferObject {
 public:
-	
-	void loadData(BufferType* data, int size) { ofxBufferObject::loadData(data, size); }
-	
-	BufferType* map(int access, int target) { return (BufferType*)ofxBufferObject::map(access, target); }
-	BufferType* map(int access) { return (BufferType*)ofxBufferObject::map(access); }
+		
+	BufferType* map(int target, int access) { return (BufferType*)ofxBufferObject::map(target, access); }
+	BufferType* map(int target) { return (BufferType*)ofxBufferObject::map(target); }
 	BufferType* map() { return (BufferType*)ofxBufferObject::map(); }
 	
 	GLenum getGlType() { return glType; }
